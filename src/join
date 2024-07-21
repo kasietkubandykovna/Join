@@ -1,0 +1,12 @@
+select city from Customer group by city;
+select * from Employees limit 1950 offset 1950;
+SELECT SupplierName,country FROM Suppliers where country='France';
+SELECT CustomerName,address,Country FROM Customers where  Country<>'Spain' and CustomerName like 'A%' ;
+SELECT * FROM Customers where PostalCode  is null or PostalCode='' ;
+SELECT * FROM Customers where city='London' order by city limit 2;
+SELECT LastName,FirstName,BirthDate FROM Employees where LastName like '____';
+SELECT Country,count(*) FROM Suppliers group by country ;
+SELECT Country,count(*) FROM Suppliers group by  country having count(*)=1  order by country asc ;
+SELECT c.categoryName,count(*) as product_count FROM Products p inner join Categories c on c.categoryId=p.categoryId group by c.categoryName ;
+SELECT p.ProductName ,s.SupplierName FROM Products p inner join Suppliers s on p.SupplierID=s.SupplierID order by SupplierName ;
+SELECT c.CustomerName,e.FirstName,s.ShipperName FROM Orders o inner join Customers c on o.CustomerID=c.CustomerID inner join Employees e on o.EmployeeID=e.EmployeeID inner join Shippers s on o.ShipperID=s.ShipperID ;
